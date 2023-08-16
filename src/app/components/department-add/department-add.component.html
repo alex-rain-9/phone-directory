@@ -1,0 +1,10 @@
+<div class="label">Добавить отдел</div>
+<form class="form" action="" [formGroup]="addDepartmentForm">
+  <div class="form-body">
+    <input class="add-input" formControlName="name" placeholder="*Название">
+  </div>
+  <div class="form-footer">
+    <button type="submit" class="main-btn" (click)="addDepartment()" [disabled]="!addDepartmentForm.valid">Добавить</button>
+    <button type="submit" class="sub-btn" (click)="updateDepartment()" [disabled]="!addDepartmentForm.valid">Обновить</button>
+  </div>
+</form>

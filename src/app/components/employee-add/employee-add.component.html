@@ -1,0 +1,16 @@
+<div class="label">Добавить сотрудника</div>
+<form action="" class="form" [formGroup]="addEmployeeForm">
+  <div class="form-body">
+    <input class="add-input" formControlName="surname" placeholder="*Фамилия">
+    <input class="add-input" formControlName="name" placeholder="*Имя">
+    <input class="add-input" formControlName="patronymic" placeholder="*Отчество">
+    <input class="add-input" formControlName="jobTitle" placeholder="*Должность">
+    <input class="add-input" formControlName="phone" placeholder="Телефон">
+    <input class="add-input" formControlName="address" placeholder="Адресс">
+    <input class="add-input" formControlName="email" placeholder="Email">
+  </div>
+  <div class="form-footer">
+    <button type="submit" class="main-btn" (click)="addEmployee()" [disabled]="!addEmployeeForm.valid">Добавить</button>
+    <button type="submit" class="sub-btn" (click)="updateEmployee()" [disabled]="!addEmployeeForm.valid">Обновить</button>
+  </div>
+</form>

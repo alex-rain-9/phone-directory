@@ -1,0 +1,24 @@
+<div class="label">Структура</div>
+<ul class="list">
+  <ng-container
+    *ngTemplateOutlet="Recursion; context:{$implicit: departmentsTree}"
+  ></ng-container>
+</ul>
+
+
+
+<ng-template #Recursion let-tree>
+  <li class="department" *ngFor="let node of tree">
+    <div class="wrapper" [ngClass]="{active: node.id === service.selectedDepartment}">
+      <div class="name-wrapper" (click)="clickOnDepartment(node.id)">
+        <span class="name">{{node.name}}</span>
+      </div>
+      <button class="close-btn" *ngIf="node.parentId !== 'root'"  (click)="deleteDepartment(node.id)"></button>
+    </div>
+    <ul *ngIf="node.children">
+      <ng-container
+        *ngTemplateOutlet="Recursion; context:{$implicit: node.children}"
+      ></ng-container>
+    </ul>
+  </li>
+</ng-template>

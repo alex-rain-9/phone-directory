@@ -1,0 +1,21 @@
+<div class="label">Сотрудники</div>
+<input class="search" type="text" placeholder="Поиск.." (keyup)="search($event)">
+
+  <ul class="list">
+    <li class="employee" *ngFor="let employee of employees" [ngClass]="{active: employee.id === service.selectedEmployee}">
+      <div class="wrapper" (click)="clickOnEmployee(employee.id)" >
+        <div class="fio" id="{{employee.id}}">
+          <span class="surname">{{employee.surname}} </span>
+          <span class="name">{{employee.name[0]}}.</span>
+          <span class="patronymic">{{employee.patronymic[0]}}.</span>
+        </div>
+        <span class="jobTitle">{{employee.jobTitle}}</span>
+        <span class="departmentId">{{getDepartmentNameById(employee.departmentId)}}</span>
+      </div>
+      <button class="close-btn" (click)="deleteEmployee(employee.id)"></button>
+    </li>
+  </ul>
+
+
+
+
